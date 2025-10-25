@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    
+    stages{
+        stage ("git clone") {
+            steps {
+                echo "git cloning is in progress"
+                git url: "https://github.com/sumedh-star/observability-for-devops.git", branch: "master"
+                echo "git cloned successfully"
+            }
+        }
+        stage ("image build") {
+            steps{
+                echo "image building is in progress"
+                sh "docker build -t notesapp:latest ./notes-app"
+                echo "docker image build successfully"
+        
+            }
+        }
+        
+        stage ("test") {
+            steps{
+                echo "Application tested in development environment and the test is pass"
+            }
+        }
+        stage ("deploy in production"){
+            steps{
+                echo "Application is deploying in production is in progress"
+                sh "docker run -d -p 8000:8000 --name=notesapp notesapp:latest "
+                echo "Application deployed successfully in the production"
+            }
+        }
+        stage ("monitoring"){
+            steps{
+            echo "monitoring aplication health also entire node health"
+            
+        }
+        } 
+    }
+}
