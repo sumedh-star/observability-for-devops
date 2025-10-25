@@ -4,7 +4,7 @@ services:
       context: ./notes-app
     container_name: notes-app
     ports:
-      - "8000:8000"
+      - "80:8000"
     networks:
       - monitoring
 networks:
