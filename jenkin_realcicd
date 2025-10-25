@@ -8,6 +8,7 @@ pipeline {
                 git url: "https://github.com/sumedh-star/observability-for-devops.git", branch: "master"
                 echo "git cloned successfully"
             }
+
         }
         stage ("image build") {
             steps{
