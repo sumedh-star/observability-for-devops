@@ -67,7 +67,7 @@ services:
     restart: unless-stopped
 
   notes-app:
-    image: notes-app:latest
+    image: sumedh89/power-app
     build:
       context: ./notes-app
       dockerfile: Dockerfile
